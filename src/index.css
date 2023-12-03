@@ -1,0 +1,62 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+} 
+
+button {
+	font: inherit;
+	border: none;
+	cursor: pointer;
+}
+
+
+:root {
+	--_hue: 240;
+	--_size: 1.8rem;
+	--_radius: 0.2em;
+	/*light mode*/
+	--bg--light: var(--_hue) 5% 95%;
+	--txt--light: var(--_hue) 70% 5%;
+	--accent--light: var(--_hue) 55% 40%;
+	/*dark mode*/
+	--bg--dark: var(--_hue) 15% 10%;
+	--accent--dark: var(--_hue) 50% 50%;
+	--txt--dark: var(--_hue) 30% 88%;
+}
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: var(--bg--dark);
+		--txt: var(--txt--dark);
+		--accent: var(--accent--dark);
+		color-scheme: dark;
+	}
+}
+@media (prefers-color-scheme: light) {
+	:root {
+		--bg: var(--bg--light);
+		--txt: var(--txt--light);
+		--accent: var(--accent--light);
+		color-scheme: light;
+	}
+}
+
+:root[color-scheme='light'] {
+	--bg: var(--bg--light);
+	--txt: var(--txt--light);
+	color-scheme: light;
+}
+:root[color-scheme='dark'] {
+	--bg: var(--bg--dark);
+	--txt: var(--txt--dark);
+	color-scheme: dark;
+}
+
+body {
+	background-color: hsl(var(--bg));
+	color: hsl(var(--txt));
+	height: 100%;
+	margin: 0;
+}
